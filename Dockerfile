@@ -22,6 +22,4 @@ COPY *.jar /opt/SoapUI/lib
 COPY *.jar /opt/SoapUI/bin/ext
 COPY sqljdbc_auth.dll /opt/SoapUI/lib
 
-RUN ls /opt/SoapUI/lib
-
 ENTRYPOINT ["testrunner.sh"]
