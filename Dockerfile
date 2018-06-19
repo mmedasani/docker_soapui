@@ -18,12 +18,10 @@ ENV PATH ${PATH}:/opt/SoapUI/bin
 
 WORKDIR /opt/SoapUI/bin
 
-RUN ls /opt/SoapUI/bin
+COPY *.jar /opt/SoapUI/lib
+COPY *.jar /opt/SoapUI/bin/ext
+COPY sqljdbc_auth.dll /opt/SoapUI/lib
 
-RUN mkdir -p /opt/SoapUI/bin &&\
-    curl https://download.microsoft.com/download/3/F/7/3F74A9B9-C5F0-43EA-A721-07DA590FD186/sqljdbc_6.2.2.1_enu.tar.gz  \
-    | gunzip -c - |tar -xf - -C /opt/SoapUI/bin && \
-    ln -s /opt/SoapUI/bin/sqljdbc_6.2/enu/* /opt/SoapUI/bin
+RUN ls /opt/SoapUI/lib
 
 ENTRYPOINT ["testrunner.sh"]
-
