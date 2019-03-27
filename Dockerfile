@@ -5,7 +5,7 @@ RUN apk add --update curl && \
     rm -rf /var/cache/apk/*
 
 # SOAP UI Version to download
-ENV SOAPUI_VERSION 5.4.0
+ENV SOAPUI_VERSION 5.5.0
 
 # Download and unarchive SoapUI
 RUN mkdir -p /opt &&\
